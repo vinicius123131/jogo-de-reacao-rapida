@@ -4,7 +4,7 @@ import random
 
 led_1 = LED(22)
 led_2 = LED(4)
-rgb = RGBLED(vermelho=14, verde=17, azul=27)
+rgb = RGBLED(red=14, green=17, blue=27)
 botao_1 = Button(24)
 botao_2 = Button(2)
 
@@ -23,27 +23,27 @@ while True:
     espera = 0
 
     tempo = random.uniform(0, 5)
-    cor_2 = random.uniform(0, 1)
-    cor_3 = random.uniform(0, 1)
+    color_2 = random.uniform(0, 1)
+    color_3 = random.uniform(0, 1)
 
     fixo = random.randint(0, 3)
 
-    if cor_2 == 0 and cor_3 == 0:
-        cor_2 = 1
+    if color_2 == 0 and color_3 == 0:
+        color_2 = 1
 
     sleep(tempo)
 
     if fixo == 3:
         toque = True
-        rgb.cor = (1, 0, 0)
+        rgb.color = (1, 0, 0)
     else:
-        rgb.cor = (0, cor_2, cor_3)
+        rgb.color = (0, color_2, color_3)
 
     while True:
         if botao_1.is_pressed and not toque:
             print(jogador_1, "vence!")
             pontuacao_jogador_1 = pontuacao_jogador_1 + 1
-            rgb.cor = (0, 0, 0)
+            rgb.color = (0, 0, 0)
             print(jogador_1, ":", pontuacao_jogador_1)
             print(jogador_2, ":", pontuacao_jogador_2)
             espera = 0
@@ -51,7 +51,7 @@ while True:
         elif botao_1.is_pressed and toque:
             print(jogador_1, "Oh não!")
             pontuacao_jogador_1 = pontuacao_jogador_1 - 1
-            rgb.cor = (0, 0, 0)
+            rgb.color = (0, 0, 0)
             print(jogador_1, ":", pontuacao_jogador_1)
             print(jogador_2, ":", pontuacao_jogador_2)
             espera = 0
@@ -60,7 +60,7 @@ while True:
         if botao_2.is_pressed and not toque:
             print(jogador_2, "vence!")
             pontuacao_jogador_2 = pontuacao_jogador_2 + 1
-            rgb.cor = (0, 0, 0)
+            rgb.color = (0, 0, 0)
             print(jogador_1, ":", pontuacao_jogador_1)
             print(jogador_2, ":", pontuacao_jogador_2)
             espera = 0
@@ -68,7 +68,7 @@ while True:
         elif botao_2.is_pressed and toque:
             print(jogador_2, "Oh não!")
             pontuacao_jogador_2 = pontuacao_jogador_2 - 1
-            rgb.cor = (0, 0, 0)
+            rgb.color = (0, 0, 0)
             print(jogador_1, ":", pontuacao_jogador_1)
             print(jogador_2, ":", pontuacao_jogador_2)
             espera = 0
@@ -76,7 +76,7 @@ while True:
 
         if toque and espera == 100000:
             print("Muito bem")
-            rgb.cor = (0, 0, 0)
+            rgb.color = (0, 0, 0)
             print(jogador_1, ":", pontuacao_jogador_1)
             print(jogador_2, ":", pontuacao_jogador_2)
             espera = 0
