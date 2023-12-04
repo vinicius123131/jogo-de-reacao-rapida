@@ -17,12 +17,12 @@ num_rodada = 0
 
 while True:
 
-    truque = False
+    toque = False
     num_rodada = num_rodada + 1
 
     espera = 0
 
-    tempo = random.uniform(0, 10)
+    tempo = random.uniform(0, 5)
     cor_2 = random.uniform(0, 1)
     cor_3 = random.uniform(0, 1)
 
@@ -34,13 +34,13 @@ while True:
     sleep(tempo)
 
     if fixo == 3:
-        truque = True
+        toque = True
         rgb.cor = (1, 0, 0)
     else:
         rgb.cor = (0, cor_2, cor_3)
 
     while True:
-        if botao_1.is_pressed and not truque:
+        if botao_1.is_pressed and not toque:
             print(jogador_1, "vence!")
             pontuacao_jogador_1 = pontuacao_jogador_1 + 1
             rgb.cor = (0, 0, 0)
@@ -48,7 +48,7 @@ while True:
             print(jogador_2, ":", pontuacao_jogador_2)
             espera = 0
             break
-        elif botao_1.is_pressed and truque:
+        elif botao_1.is_pressed and toque:
             print(jogador_1, "Oh não!")
             pontuacao_jogador_1 = pontuacao_jogador_1 - 1
             rgb.cor = (0, 0, 0)
@@ -57,7 +57,7 @@ while True:
             espera = 0
             break
 
-        if botao_2.is_pressed and not truque:
+        if botao_2.is_pressed and not toque:
             print(jogador_2, "vence!")
             pontuacao_jogador_2 = pontuacao_jogador_2 + 1
             rgb.cor = (0, 0, 0)
@@ -65,7 +65,7 @@ while True:
             print(jogador_2, ":", pontuacao_jogador_2)
             espera = 0
             break
-        elif botao_2.is_pressed and truque:
+        elif botao_2.is_pressed and toque:
             print(jogador_2, "Oh não!")
             pontuacao_jogador_2 = pontuacao_jogador_2 - 1
             rgb.cor = (0, 0, 0)
@@ -74,7 +74,7 @@ while True:
             espera = 0
             break
 
-        if truque and espera == 100000:
+        if toque and espera == 100000:
             print("Muito bem")
             rgb.cor = (0, 0, 0)
             print(jogador_1, ":", pontuacao_jogador_1)
